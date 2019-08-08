@@ -7,18 +7,24 @@ const reload = require('reload')
 const httpProxy = require('http-proxy');
 const { router } = require('./services-handler');
 var apiProxy = httpProxy.createProxyServer();
+const path = require('path')
 
 //add the router
 
 app.use(fileupload())
-app.use((err, req, res, next)=>{
+app.use((err, req, res, next) => {
   console.log(req)
 })
+
 app.use('/', router);
 
-app.all('/*',(req, res)=>{
-  apiProxy.web(req, res, {target: 'http://localhost:4200',});
+app.use(express.static(path.join(__dirname, 'dist/thermometer')));
+app.use('', (req, res) => {
+  res.sendFile(__dirname + './dist/thermometer/index.html')
+  // apiProxy.web(req, res, {target: 'http://localhost:4200',});
 })
+
+
 app.listen(process.env.port || 3000);
 
 var server = http.createServer(app);
