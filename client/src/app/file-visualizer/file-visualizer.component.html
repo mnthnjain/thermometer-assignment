@@ -1,0 +1,24 @@
+<div class="file-name-container">
+    <div class="file-name" *ngFor="let file of files" (click)="selectFile(file.name)">
+        <div>{{file.name}}</div>
+    </div>
+</div>
+<div class="chart-container">
+    <div>
+        <h1 *ngIf="noFileUploaded">kindly upload a file</h1>
+        <h1 *ngIf="noFileSelected && !noFileUploaded">Please Select a File from left panel</h1>
+    </div>
+    <div *ngIf="chartIsLoading">Chart is loading, please wait!</div>
+    <div [chart]="chart" *ngIf="!loading" class="chart" ></div>
+    <div class="" *ngIf="loading">
+        <div>Please Wait!</div>
+        <div>we are downloading your data</div>
+        <div>{{downloadedMb}}-Mb <br> downloaded</div>
+
+        <div class="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

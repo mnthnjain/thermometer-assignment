@@ -1,0 +1,15 @@
+app-file-uploader {
+  padding: 10px;
+  flex: 0 0 100%;
+  border-bottom: 3px solid #333;
+  display: flex;
+  width: 99vw;
+}
+
+app-file-visualizer {
+  flex: 0 0 100%;
+  display: flex;
+  @media only screen and (max-width: 768px){
+    flex-direction: column
+  }
+}

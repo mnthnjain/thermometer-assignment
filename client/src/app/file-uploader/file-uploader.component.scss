@@ -1,0 +1,18 @@
+h1 {
+  // flex: 0 0 auto;
+  color: #333;
+}
+.file-uploader {
+  display: block;
+  width: 500px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 4px;
+  angular-file-uploader {
+    width: 500px !important;
+    .container {
+      margin-right: -1000px;
+      width: 500px !important;
+    }
+  }
+}
